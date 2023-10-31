@@ -65,7 +65,7 @@
 
                                                     <br />
                                                       <div>
-                                                          <asp:LinkButton ID="LinkButton3" runat="server" CssClass="btn center-block" OnClick="LinkButton3_Click">Solicitar Código</asp:LinkButton>
+                                                          <asp:LinkButton ID="LinkButton3" runat="server" CssClass="btn center-block" OnClick="LinkButton3_Click">Solicitar Código Nuevo</asp:LinkButton>
                                                        <%--<asp:Button ID="Button1" runat="server" CommandName="Login" CssClass="botonimagen center-block" ImageUrl="img/ingresar.png" ValidationGroup="Login1" Style="border-radius: 25px; height: 40px; width: 220px;" />--%>
                                                     </div>
                                                     <br />
