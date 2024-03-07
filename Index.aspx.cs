@@ -50,152 +50,7 @@ public partial class Index : System.Web.UI.Page
     /// <param name="e"></param>
     protected void LogAcceso_Authenticate(object sender, AuthenticateEventArgs e)
     {
-        div_error.Visible = false;
-        Label2.Text = "";
-
-        string pass = Login1.Password.Trim();
-
-        if (pass == Session["CodigoVerificacion"] as string)
-        {
-         e.Authenticated = true;
         
-        
-        }
-        
-
-        //string userConGuion = ManejaUsuarios.LimpiarNIT(Login1.UserName.Trim());
-        //string userSinGuion = String.Empty;
-
-        //// Verificar si tiene dígito de verificación
-        //if (Login1.UserName.IndexOf('-') != -1)
-        //    userSinGuion = ManejaUsuarios.LimpiarNIT(Login1.UserName.Remove(Login1.UserName.IndexOf('-')));
-        //else
-        //    userSinGuion = ManejaUsuarios.LimpiarNIT(Login1.UserName.Trim());
-        ////
-
-        //string nitEC = Login1.UserName.Trim();
-        
-        
-
-        //ManejaUsuarios manejaUsuarios = new ManejaUsuarios();
-
-        //forward_clientes clienteEC = manejaUsuarios.BuscarClienteBD_ECCargo(nitEC);
-
-        //TERCEROS clienteConGuion = manejaUsuarios.BuscarClienteBDHosting(userConGuion);
-        //TERCEROS clienteSinGuion = manejaUsuarios.BuscarClienteBDHosting(userSinGuion);
-        //fed_usuarios admin = manejaUsuarios.BuscarAdmin(Login1.UserName.Trim());
-
-        //if (admin != null)
-        //{
-            
-            
-        //    var admin_password = manejaUsuarios.BuscarAdminPassword(Login1.UserName.Trim());
-
-        //    if (admin_password != null && admin_password.fed_usuario_intentos < ManejaUsuarios.numero_intentos)
-        //    {
-        //        Session["admin"] = admin_password;
-        //        Session["usuario"] = null;
-        //        Session["cliente"] = null;
-
-        //        manejaUsuarios.ReiniciarIntentosAdmin(admin_password);
-        //        manejaUsuarios.DesconectarBD();
-        //        e.Authenticated = true;
-                
-
-
-        //    }
-        //    else if (admin.fed_usuario_intentos >= ManejaUsuarios.numero_intentos)
-        //    {
-        //        manejaUsuarios.DesconectarBD();
-        //        div_error.Visible = true;
-        //        Label2.Text = "Su usuario ha sido bloqueado al exceder el límite de inicios de sesión fallidos.";
-        //    }
-        //    else
-        //    {
-        //        manejaUsuarios.ActualizarIntentosFallidosAdmin(admin);
-        //        manejaUsuarios.DesconectarBD();
-        //        div_error.Visible = true;
-        //        Label2.Text = "Los datos ingresados son incorrectos.";
-        //    }
-        //}
-        //else if (clienteEC != null)
-        //{
-        //    if (clienteConGuion != null || clienteSinGuion != null)
-        //    {
-        //        USUARIOSWEB usuario = manejaUsuarios.BuscarUsuarioBDHosting(userConGuion ?? String.Empty);
-
-        //        if(usuario == null) usuario = manejaUsuarios.BuscarUsuarioBDHosting(userSinGuion ?? String.Empty);
-
-        //        if (usuario != null)
-        //        {
-
-        //            string codigoVerificacion = GenerateCode();
-
-
-        //            USUARIOSWEB usuario_password = manejaUsuarios.BuscarUsuarioYPasswordBDHosting(userConGuion ?? String.Empty);
-
-        //            if (usuario_password == null) usuario_password = manejaUsuarios.BuscarUsuarioYPasswordBDHosting(userSinGuion ?? String.Empty);
-
-        //            if (usuario_password != null && usuario_password.NUMEROINTENTOS < ManejaUsuarios.numero_intentos)
-        //            {
-        //                Session["admin"] = null;
-        //                Session["usuario"] = usuario_password;
-        //                Session["cliente"] = usuario_password.TERCEROS;
-                       
-        //                manejaUsuarios.ReiniciarIntentos(usuario_password);
-        //                manejaUsuarios.DesconectarBD();
-        //                e.Authenticated = true;
-                        
-
-        //            }
-        //            else if (usuario.NUMEROINTENTOS >= ManejaUsuarios.numero_intentos)
-        //            {
-        //                manejaUsuarios.ActualizarIntentosFallidos(usuario);
-        //                manejaUsuarios.MandarCorreoCode(usuario, codigoVerificacion);
-        //                Session["CodigoVerificacion"] = codigoVerificacion;
-        //                Session["CodigoVerificacionTiempo"] = DateTime.Now;
-        //                manejaUsuarios.DesconectarBD();
-        //                //div_error.Visible = true;
-        //                Label2.Text = codigoVerificacion;
-        //            }
-        //            else
-        //            {
-        //                manejaUsuarios.ActualizarIntentosFallidos(usuario);
-        //                manejaUsuarios.DesconectarBD();
-        //                div_error.Visible = true;
-        //                Label2.Text = "Los datos ingresados son incorrectos.";
-        //            }
-        //        }
-        //        else
-        //        {
-        //            Session["cliente"] = clienteConGuion ?? clienteSinGuion;
-        //            Session["registrar"] = "S";
-        //            Session["clicodigo"] = clienteEC.cli_codigo.ToString();
-        //            manejaUsuarios.DesconectarBD();
-        //            Response.Redirect("RegistroUsuarios.aspx");
-        //        }
-        //    }
-        //    else
-        //    {
-        //        clienteConGuion = manejaUsuarios.IngresarClienteNoExistente(clienteEC);
-
-        //        if (clienteConGuion != null)
-        //        {
-        //            Session["cliente"] = clienteConGuion;
-        //            Session["registrar"] = "S";
-        //            Session["clicodigo"] = clienteEC.cli_codigo.ToString();
-        //            manejaUsuarios.DesconectarBD();
-        //            Response.Redirect("RegistroUsuarios.aspx");
-        //        }
-        //    }
-        //}
-        //else
-        //{
-        //    //El cliente no existe en ningún lado.
-        //    manejaUsuarios.DesconectarBD();
-        //    div_error.Visible = true;
-        //    Label2.Text = "El cliente ingresado no existe en nuestra base de datos.";
-        //}
     }    
 
     /// <summary>
@@ -218,10 +73,7 @@ public partial class Index : System.Web.UI.Page
         else
             userSinGuion = ManejaUsuarios.LimpiarNIT(Login1.UserName.Trim());
         //
-
         string nitEC = Login1.UserName.Trim();
-
-
 
         ManejaUsuarios manejaUsuarios = new ManejaUsuarios();
 
@@ -232,23 +84,19 @@ public partial class Index : System.Web.UI.Page
         fed_usuarios admin = manejaUsuarios.BuscarAdmin(Login1.UserName.Trim());
 
         if (admin != null)
-        {
-
-
+        {   
             var admin_password = manejaUsuarios.BuscarAdminPassword(Login1.UserName.Trim());
-
             if (admin_password != null && admin_password.fed_usuario_intentos < ManejaUsuarios.numero_intentos)
             {
                 Session["admin"] = admin_password;
                 Session["usuario"] = null;
                 Session["cliente"] = null;
-
+                string codigoVerificacion = admin_password.fed_usuario_password;
+                Session["tipo"] = "admin";
+                Session["CodigoVerificacion"] = codigoVerificacion;
                 manejaUsuarios.ReiniciarIntentosAdmin(admin_password);
                 manejaUsuarios.DesconectarBD();
-              
-
-
-
+                Response.Redirect("Codigo.aspx");
             }
             else if (admin.fed_usuario_intentos >= ManejaUsuarios.numero_intentos)
             {
@@ -290,12 +138,10 @@ public partial class Index : System.Web.UI.Page
                         manejaUsuarios.MandarCorreoCode(usuario, codigoVerificacion);
                         Session["CodigoVerificacion"] = codigoVerificacion;
                         Session["CodigoVerificacionTiempo"] = DateTime.Now;
-
+                        Session["tipo"] = "user";
                         manejaUsuarios.ReiniciarIntentos(usuario_password);
                         manejaUsuarios.DesconectarBD();
-                      
-
-
+                        Response.Redirect("Codigo.aspx");
                     }
                     else if (usuario.NUMEROINTENTOS >= ManejaUsuarios.numero_intentos)
                     {
@@ -303,9 +149,9 @@ public partial class Index : System.Web.UI.Page
                         manejaUsuarios.MandarCorreoCode(usuario, codigoVerificacion);
                         Session["CodigoVerificacion"] = codigoVerificacion;
                         Session["CodigoVerificacionTiempo"] = DateTime.Now;
+                        Session["tipo"] = "user";
                         manejaUsuarios.DesconectarBD();
-                        //div_error.Visible = true;
-                        Label2.Text = codigoVerificacion;
+                        Response.Redirect("Codigo.aspx");
                     }
                     else
                     {

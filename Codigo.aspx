@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Index.aspx.cs" Inherits="Index" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Codigo.aspx.cs" Inherits="Codigo" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -28,13 +28,11 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-	<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
 
     <script type="text/javascript" src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
-
 <body class="logueo">
-   
     <div>
         <div class="row">
             <img class="img-responsive center-block" src="img/LOGO.png" style="padding-top: 150px;">
@@ -46,10 +44,11 @@
             <img class="img-responsive center-block " style="" src="img/pagos2.png">
         </div>
 
-        <div class="container">            
-            <form runat="server">
+        <div class="container">
+
+            <form id="form1" runat="server">
                 <asp:Panel ID="Panel1" runat="server">
-                    <asp:Login ID="Login1" runat="server" OnAuthenticate="LogAcceso_Authenticate" DestinationPageUrl="~/Index.aspx">
+                    <asp:Login ID="Login1" runat="server" OnAuthenticate="Login1_Authenticate" DestinationPageUrl="~/Codigo.aspx">
                         <LayoutTemplate>
                             <!--login-->
                             <div class="top-content">
@@ -59,31 +58,22 @@
                                             <div class="col-sm-6 col-sm-offset-3 form-box">
                                                 <div class="form-bottom">
                                                     <div class="row">
-                                                        <asp:TextBox ID="UserName" runat="server" CssClass="form-control" Style="border-radius: 25px; height: 45px;" Placeholder="Nombre de usuario" Width="100%"></asp:TextBox>
+                                                        <asp:TextBox ID="UserName" runat="server" CssClass="form-control" Style="border-radius: 25px; height: 45px;" Placeholder="Nombre de usuario" Width="100%" Visible="false"></asp:TextBox>
                                                     </div>
-                                                    <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="UserName" ErrorMessage="El nombre de usuario es obligatorio." ToolTip="El nombre de usuario es obligatorio." ValidationGroup="Login1" Style="color:#ffffff">El nombre de usuario es obligatorio.</asp:RequiredFieldValidator>
-
-                                                    <br />
-                                                      <div>
-                                                          <asp:LinkButton ID="LinkButton3" runat="server" CssClass="btn center-block" OnClick="LinkButton3_Click">Solicitar Código</asp:LinkButton>
-                                                       <%--<asp:Button ID="Button1" runat="server" CommandName="Login" CssClass="botonimagen center-block" ImageUrl="img/ingresar.png" ValidationGroup="Login1" Style="border-radius: 25px; height: 40px; width: 220px;" />--%>
+                                                    <div class="row">
+                                                        <asp:TextBox ID="Password" runat="server" TextMode="Password" CssClass="form-password form-control" Style="border-radius: 25px; height: 45px;" Placeholder="Código" Width="100%"></asp:TextBox>
                                                     </div>
-                                                    <br />
-
-                                                    <div class="row" id="" >                                                        
-                                                        <asp:TextBox ID="Password" runat="server"  TextMode="Password" CssClass="form-password form-control" Style="border-radius: 25px;  height: 45px;" Placeholder="Código" Width="100%" Visible="false"></asp:TextBox>
-                                                    </div>
-                                                    <asp:RequiredFieldValidator  runat="server" ControlToValidate="Password"   ValidationGroup="Login1" Style="color:#ffffff"></asp:RequiredFieldValidator>
+                                                    <asp:RequiredFieldValidator runat="server" ControlToValidate="Password" ValidationGroup="Login1" Style="color: #ffffff"></asp:RequiredFieldValidator>
 
                                                     <br>
 
-                                                    
 
                                                     <br />
 
                                                     <div>
-                                                        <asp:Button ID="LoginButton" runat="server" CommandName="Login" CssClass="botonimagen center-block" ImageUrl="img/ingresar.png" ValidationGroup="Login1" Style="border-radius: 25px; height: 40px; width: 220px;" Visible="false" />
+                                                        <asp:Button ID="LoginButton" runat="server" CommandName="Login" CssClass="botonimagen center-block" ImageUrl="img/ingresar.png" ValidationGroup="Login1" Style="border-radius: 25px; height: 40px; width: 220px;" />
                                                     </div>
+
                                                     <div>
                                                         <br>
                                                         <a href="manuales/instructivo.pdf">
@@ -94,7 +84,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>                   
+                            </div>
                         </LayoutTemplate>
                     </asp:Login>
 
@@ -109,36 +99,10 @@
                         <strong>Error!</strong>
                         <asp:Label ID="Label2" runat="server"></asp:Label>
                     </div>
-                </asp:Panel>         
+                </asp:Panel>
             </form>
+
         </div>
     </div>
-
-    <br>
-    <br>
-    <br>
-    <!--footer-->
-    <div class="col-lg-12">
-        <img class="img-responsive center-block "  src="img/pie2.png" style="width: 2000px">
-    </div>
-    <br>
-    <br>
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
-    <!-- Plugin JavaScript -->
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-    <script src="js/classie.js"></script>
-    <script src="js/cbpAnimatedHeader.js"></script>
-
-    <!-- Custom Theme JavaScript -->
-    <script src="js/agency.js"></script>
-
 </body>
-
 </html>
-
