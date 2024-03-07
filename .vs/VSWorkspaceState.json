@@ -1,9 +1,11 @@
 {
   "ExpandedNodes": [
     "",
+    "\\Admin",
     "\\App_Code",
-    "\\App_Code\\Source"
+    "\\App_Code\\Source",
+    "\\manuales"
   ],
-  "SelectedNode": "\\App_Code\\Source\\ManejaPagos.cs",
+  "SelectedNode": "\\Index.aspx",
   "PreviewInSolutionExplorer": false
 }
