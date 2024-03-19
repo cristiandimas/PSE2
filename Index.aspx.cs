@@ -136,6 +136,7 @@ public partial class Index : System.Web.UI.Page
                         Session["usuario"] = usuario_password;
                         Session["cliente"] = usuario_password.TERCEROS;
                         manejaUsuarios.MandarCorreoCode(usuario, codigoVerificacion);
+                        Session["Correo"] = usuario.CORREO;
                         Session["CodigoVerificacion"] = codigoVerificacion;
                         Session["CodigoVerificacionTiempo"] = DateTime.Now;
                         Session["tipo"] = "user";
@@ -147,6 +148,7 @@ public partial class Index : System.Web.UI.Page
                     {
                         manejaUsuarios.ActualizarIntentosFallidos(usuario);
                         manejaUsuarios.MandarCorreoCode(usuario, codigoVerificacion);
+                        Session["Correo"] = usuario.CORREO;
                         Session["CodigoVerificacion"] = codigoVerificacion;
                         Session["CodigoVerificacionTiempo"] = DateTime.Now;
                         Session["tipo"] = "user";

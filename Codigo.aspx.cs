@@ -12,8 +12,17 @@ public partial class Codigo : System.Web.UI.Page
 {
     private static int _admin = 2;
     private static int _cliente = 1;
+    private string correoUsuario = "";
+    private string correoEncriptado = "";
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Session["Correo"] != null)
+        {
+            correoUsuario = Session["Correo"] as string;
+            correoEncriptado = EncriptarCorreo(correoUsuario);
+            LabelCorreo.Text = correoEncriptado;
+        }
+        
         if (HttpContext.Current.User.Identity.IsAuthenticated)
         {
             USUARIOSWEB usuario = (USUARIOSWEB)Session["usuario"];
@@ -32,6 +41,20 @@ public partial class Codigo : System.Web.UI.Page
             }
         }
         if (Session["tipo"] as string == null) Response.Redirect("Index.aspx");
+    }
+
+    public static string EncriptarCorreo(string correo)
+    {
+        string[] partes = correo.Split('@'); // Dividir el correo en nombre de usuario y dominio
+        string nombreUsuario = partes[0];
+        string dominio = partes[1];
+
+        // Encriptar el nombre de usuario
+        string nombreUsuarioEncriptado = nombreUsuario.Substring(0, Math.Min(3, nombreUsuario.Length)) + new string('*', Math.Max(0, nombreUsuario.Length - 3));
+
+        // Devolver el correo encriptado
+        string correoEncriptado = nombreUsuarioEncriptado + "@" + dominio;
+        return correoEncriptado;
     }
     public static string CalculateMD5Hash(string input)
     {

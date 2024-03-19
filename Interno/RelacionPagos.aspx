@@ -20,7 +20,7 @@
                 <asp:BoundField DataField="FECHAPAGO" HeaderText="FECHAPAGO" SortExpression="FECHAPAGO"></asp:BoundField>
                 <asp:TemplateField HeaderText="Ver" >
                     <ItemTemplate>
-                        <asp:LinkButton ID="Ver" runat="server" CommandArgument='<%# Eval("IDREFERENCIAPAGO") %>' OnClick="LinkButton_Click">Ver</asp:LinkButton>
+                        <asp:LinkButton ID="Ver" runat="server" CommandArgument='<%# Eval("IDREFERENCIAPAGO") %>' OnClick="LinkButton_Click" ForeColor="#0d62ab">Ver</asp:LinkButton>
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>

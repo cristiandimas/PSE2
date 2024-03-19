@@ -43,7 +43,7 @@
 
         <!--div pagos-->
         <div class="col-lg-12">
-            <img class="img-responsive center-block " style="" src="img/pagos2.png">
+            <img class="img-responsive center-block " style="border-radius: 25px; height: 95px;" src="img/pagos2.png">
         </div>
 
         <div class="container">            
@@ -59,14 +59,15 @@
                                             <div class="col-sm-6 col-sm-offset-3 form-box">
                                                 <div class="form-bottom">
                                                     <div class="row">
-                                                        <asp:TextBox ID="UserName" runat="server" CssClass="form-control" Style="border-radius: 25px; height: 45px;" Placeholder="Nombre de usuario" Width="100%"></asp:TextBox>
+                                                        <asp:TextBox ID="UserName" runat="server" CssClass="form-control" Style="border-radius: 25px; height: 45px;" Placeholder="Número de NIT" Width="100%"></asp:TextBox>
                                                     </div>
                                                     <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="UserName" ErrorMessage="El nombre de usuario es obligatorio." ToolTip="El nombre de usuario es obligatorio." ValidationGroup="Login1" Style="color:#ffffff">El nombre de usuario es obligatorio.</asp:RequiredFieldValidator>
 
                                                     <br />
                                                       <div>
-                                                          <asp:LinkButton ID="LinkButton3" runat="server" CssClass="btn center-block" OnClick="LinkButton3_Click">Solicitar Código</asp:LinkButton>
+                                                         
                                                        <%--<asp:Button ID="Button1" runat="server" CommandName="Login" CssClass="botonimagen center-block" ImageUrl="img/ingresar.png" ValidationGroup="Login1" Style="border-radius: 25px; height: 40px; width: 220px;" />--%>
+													   <asp:Button  runat="server" CommandName="Login" CssClass="botonimagen center-block" ImageUrl="img/ingresar.png"  Style="border-radius: 25px; height: 40px; width: 220px;" OnClick="LinkButton3_Click"/>
                                                     </div>
                                                     <br />
 
@@ -75,11 +76,7 @@
                                                     </div>
                                                     <asp:RequiredFieldValidator  runat="server" ControlToValidate="Password"   ValidationGroup="Login1" Style="color:#ffffff"></asp:RequiredFieldValidator>
 
-                                                    <br>
-
                                                     
-
-                                                    <br />
 
                                                     <div>
                                                         <asp:Button ID="LoginButton" runat="server" CommandName="Login" CssClass="botonimagen center-block" ImageUrl="img/ingresar.png" ValidationGroup="Login1" Style="border-radius: 25px; height: 40px; width: 220px;" Visible="false" />
@@ -100,10 +97,7 @@
 
                     <br />
 
-                    <div class="alert alert-info">
-                        <strong>Atención!</strong>
-                        Si es primera vez que ingresa, debe colocar como usuario el NIT de la empresa a la que pertenece, incluyendo el dígito de verificación y una contraseña cualquiera, luego, se le solicitará registrar una dirección de correo electrónico y una nueva contraseña.
-                    </div>
+                   
 
                     <div runat="server" class="alert alert-danger" id="div_error" visible="false">
                         <strong>Error!</strong>
@@ -118,9 +112,7 @@
     <br>
     <br>
     <!--footer-->
-    <div class="col-lg-12">
-        <img class="img-responsive center-block "  src="img/pie2.png" style="width: 2000px">
-    </div>
+
     <br>
     <br>
 
@@ -141,4 +133,3 @@
 </body>
 
 </html>
-

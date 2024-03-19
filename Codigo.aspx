@@ -41,7 +41,15 @@
 
         <!--div pagos-->
         <div class="col-lg-12">
-            <img class="img-responsive center-block " style="" src="img/pagos2.png">
+            <img class="img-responsive center-block " style="border-radius: 25px; height: 95px;" src="img/pagos2.png">
+        </div>
+
+        <div class="col-lg-12">
+            <img class="img-responsive center-block" style="border-radius: 25px; height: 70px; margin-bottom: -30px;" src="img/digitecod.png">
+             
+        </div>
+        <div class="col-lg-12" style="align-items: center; display: flex; margin-top: 35px; margin-bottom: -20px">
+            <asp:Label ID="LabelCorreo" runat="server" CssClass="center-block" Font-Bold="true" Font-Size="X-Large" ForeColor="#0d62ab"></asp:Label>
         </div>
 
         <div class="container">
@@ -64,16 +72,11 @@
                                                         <asp:TextBox ID="Password" runat="server" TextMode="Password" CssClass="form-password form-control" Style="border-radius: 25px; height: 45px;" Placeholder="Código" Width="100%"></asp:TextBox>
                                                     </div>
                                                     <asp:RequiredFieldValidator runat="server" ControlToValidate="Password" ValidationGroup="Login1" Style="color: #ffffff"></asp:RequiredFieldValidator>
-
                                                     <br>
-
-
                                                     <br />
-
                                                     <div>
                                                         <asp:Button ID="LoginButton" runat="server" CommandName="Login" CssClass="botonimagen center-block" ImageUrl="img/ingresar.png" ValidationGroup="Login1" Style="border-radius: 25px; height: 40px; width: 220px;" />
                                                     </div>
-
                                                     <div>
                                                         <br>
                                                         <a href="manuales/instructivo.pdf">
@@ -87,14 +90,7 @@
                             </div>
                         </LayoutTemplate>
                     </asp:Login>
-
                     <br />
-
-                    <div class="alert alert-info">
-                        <strong>Atención!</strong>
-                        Si es primera vez que ingresa, debe colocar como usuario el NIT de la empresa a la que pertenece, incluyendo el dígito de verificación y una contraseña cualquiera, luego, se le solicitará registrar una dirección de correo electrónico y una nueva contraseña.
-                    </div>
-
                     <div runat="server" class="alert alert-danger" id="div_error" visible="false">
                         <strong>Error!</strong>
                         <asp:Label ID="Label2" runat="server"></asp:Label>
